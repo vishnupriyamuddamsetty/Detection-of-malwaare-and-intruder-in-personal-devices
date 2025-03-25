@@ -45,7 +45,7 @@ def train_model(faces, labels, epochs=10, test_size=0.2):
     print("Model trained and saved successfully.")
     return accuracy_matrix
 
-data_folder = "C:/Users/mudda/OneDrive/Desktop/finalproject/data"  # Change this to the path of your data folder
+data_folder = "C:/Users/.../OneDrive/Desktop/../data"  # Change this to the path of your data folder
 faces, labels, label_dict = prepare_training_data(data_folder)
 
 epochs = 5  # Define the number of epochs
