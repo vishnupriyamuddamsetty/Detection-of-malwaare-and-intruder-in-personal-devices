@@ -1,0 +1,66 @@
+<!-- index.html -->
+<style>
+    body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh;
+    margin: 0;
+    justify-content: space-around; /* Add space around the elements */
+}
+
+h1 {
+    margin-bottom: 10px; /* Increase space between heading and buttons */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+input[type="file"],
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    background-color: #30363b; /* Button color */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+input[type="file"]:hover,
+button:hover {
+    background-color: #47525e; /* Darker color on hover */
+}
+
+input[type="file"]:active,
+button:active {
+    background-color: #1e252c; /* Darker color on click */
+}
+
+</style>
+<html>
+<head>
+    <title>ML Webpage</title>
+</head>
+<body>
+    <h1>Welcome to the ML Webpage</h1>
+    <form action="{% url 'run_ml_models' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file">
+        <button type="submit">Run</button>
+    </form>
+    {% if prediction %}
+        <h2>Output of Model 1:</h2>
+        <p>{{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
